@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Localhost Lab</title>
+  </head>
+<body>
+
+<h1>Localhost Lab</h1>
+
+<form id="myForm">
+<input id="myName" placeholder="Enter your name..."/><br><br>
+<textarea rows="10" cols="80" placeholder="Enter your comment..." id="myComment"></textarea>
+<button onclick="save()">Save</button>
+<button onclick="show()">Show</button>
+<button onclick="reset()">Reset</button>
+</form>
+
+<script>
+  function save(){
+    var userName = document.getElementById("myName").value;
+    var userComment = document.getElementById("myComment").value;
+    localStorage.setItem("name",userName);
+    localStorage.setItem("comment",userComment);
+  }
+  
+  function show(){
+    var showName = localStorage.getItem("name");
+    var showComment = localStorage.getItem("comment");
+    alert("You entered " + showName + " Your Comment " + showComment);
+    //alert("You entered " + showComment);
+  }
+
+  function reset() {
+    //document.getElementById("myName").reset();
+    localStorage.clear();
+}
+</script>
+</body>
+</html>
